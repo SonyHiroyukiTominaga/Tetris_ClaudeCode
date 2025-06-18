@@ -93,7 +93,7 @@ export const useTetris = () => {
         const newNextPiece = createTetromino(getRandomTetrominoType());
         const newCurrentPiece = prev.nextPiece;
         
-        const gameOver = newCurrentPiece.position.y >= 0 && isGameOver(newCurrentPiece, clearedBoard);
+        const gameOver = isGameOver(newCurrentPiece, clearedBoard);
         
         return {
           ...prev,
@@ -137,7 +137,7 @@ export const useTetris = () => {
       const newNextPiece = createTetromino(getRandomTetrominoType());
       const newCurrentPiece = prev.nextPiece;
       
-      const gameOver = newCurrentPiece.position.y >= 0 && isGameOver(newCurrentPiece, clearedBoard);
+      const gameOver = isGameOver(newCurrentPiece, clearedBoard);
       
       return {
         ...prev,

@@ -114,17 +114,7 @@ export function getDropTime(level: number): number {
 }
 
 export function isGameOver(tetromino: Tetromino, board: number[][]): boolean {
-  const blocks = getTetrominoBlocks(tetromino);
-  
-  for (const block of blocks) {
-    if (block.y < 0) continue;
-    if (block.y < BOARD_HEIGHT && block.x >= 0 && block.x < BOARD_WIDTH) {
-      if (board[block.y][block.x] !== 0) {
-        return true;
-      }
-    }
-  }
-  return false;
+  return !isValidPosition(tetromino, board);
 }
 
 export function moveTetromino(
